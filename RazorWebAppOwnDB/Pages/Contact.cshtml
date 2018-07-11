@@ -1,0 +1,63 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<h2>@ViewData["Title"]</h2>
+@*<h3>@Model.Message</h3>*@
+<h5>We've created this directory so that members can contact one another, so please feel free to contact the members you'd like to study with!</h5>
+<h5>If you have any questions for the admin of the site, please contact <a href="mailto:bamurtaugh@knights.ucf.edu">bamurtaugh@knights.ucf.edu</a>.</h5>
+
+<form class="form form-horizontal" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="mails.From" class="col-md-3 right">Your Email Address:</label>
+                <div class="col-md-9">
+                    <input asp-for="mails.From" class="form-control" />
+                    <span asp-validation-for="mails.From"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="mails.To" class="col-md-3 right">Recipient Email Address:</label>
+                <div class="col-md-9">
+                    <input asp-for="mails.To" class="form-control" />
+                    <span asp-validation-for="mails.To"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="mails.Subject" class="col-md-3 right">Subject:</label>
+                <div class="col-md-9">
+                    <input asp-for="mails.Subject" class="form-control" />
+                    <span asp-validation-for="mails.Subject"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="mails.Body" class="col-md-3 right">Your Message:</label>
+                <div class="col-md-9">
+                    <textarea asp-for="mails.Body" rows="6" class="form-control"></textarea>
+                    <span asp-validation-for="mails.Body"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit">Send</button>
+        </div>
+    </div>
+</form>

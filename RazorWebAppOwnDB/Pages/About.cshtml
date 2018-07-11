@@ -1,0 +1,32 @@
+﻿@page
+@model RazorWebAppOwnDB.Pages.Members.IndexModel
+@{
+    ViewData["Title"] = "About";
+}
+
+<h2>@ViewData["Title"]</h2>
+@*<h3>@Model.Message</h3>*@
+<br />
+<h4>Tips For Using the Directory</h4>
+
+@*<p>Use this area to provide additional information.</p>*@
+
+<li>When entering your information, please be sure to be <b>complete</b> and <b>accurate</b> so that the results are correct in searches.</li>
+<li>If you realize you have made a mistake in your information, you can edit your entry.</li>
+<li>Please do not edit other members' entries without their permission.</li>
+
+<br />
+<h4>Our Current Members</h4>
+<table class="table">
+    <tbody>
+        @foreach (var item in Model.Member)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName) |
+                    <a asp-page="/Members/Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

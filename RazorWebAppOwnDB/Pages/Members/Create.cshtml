@@ -1,0 +1,95 @@
+@page
+@model RazorWebAppOwnDB.Pages.Members.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Member</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Member.FirstName" class="control-label"></label>
+                <input asp-for="Member.FirstName" class="form-control" />
+                <span asp-validation-for="Member.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.LastName" class="control-label"></label>
+                <input asp-for="Member.LastName" class="form-control" />
+                <span asp-validation-for="Member.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.InitiationDate" class="control-label"></label>
+                <input asp-for="Member.InitiationDate" class="form-control" />
+                <span asp-validation-for="Member.InitiationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.Major" class="control-label"></label>
+                <select asp-for="Member.Major" class="form-control">
+                    <option value="">-- Select Major --</option>
+                    <option value="Aerospace Engineering">Aerospace Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Computer Engineering">Computer Engineering</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Environmental Engineering">Environmental Engineering</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Photonics">Photonics</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="Member.Major" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.CurrentCourses" class="control-label"></label>
+                <input asp-for="Member.CurrentCourses" class="form-control" />
+                @*<select asp-for="Member.CurrentCourses" asp-items="Courses" class="form-control" multiple="multiple">
+                   <option value="">-- Select Courses --</option>
+                    <option value="Discrete">Discrete</option>
+                    <option value="Calculus">Calculus</option>
+                    <option value="Computer Science 1">Computer Science 1</option>
+                    <option value="Computer Science 2">Computer Science 2</option>
+                    <option value="Concrete">Concrete</option>
+                    <option value="Databases">Databases</option>
+                    <option value="Electrical Networks">Electrical Networks</option>
+                    <option value="Flight Structures">Flight Structures</option>
+                    <option value="Materials">Materials</option>
+                    <option value="Matrix and Linear Algebra">Matrix and Linear Algebra</option>
+                    <option value="Operating Systems">Operating Systems</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Senior Design">Senior Design</option>
+                    <option value="Statics">Statics</option>
+                    <option value="Thermodynamics">Thermodynamics</option>
+                    <option value="Other">Other (Please Specify in Description)</option>*@
+                </select>
+                <span asp-validation-for="Member.CurrentCourses" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.Description" class="control-label"></label>
+                <input asp-for="Member.Description" class="form-control" />
+                <span asp-validation-for="Member.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Member.EmailAddress" class="control-label"></label>
+                <input asp-for="Member.EmailAddress" class="form-control" />
+                <span asp-validation-for="Member.EmailAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
